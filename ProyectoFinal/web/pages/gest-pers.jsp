@@ -14,7 +14,7 @@
     <body>
         <div id="wrapper">
 
-            <%@include file="general/tabs.html" %>
+            <%@include file="general/tabs.jsp" %>
 
             <div id="page-wrapper">
 

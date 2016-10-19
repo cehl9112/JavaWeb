@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : Oct 18, 2016, 9:47:19 AM
-    Author     : CEHL
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +8,7 @@
     <body>
         <div id="wrapper">
 
-            <%@include file="general/tabs.html" %>
+            <%@include file="general/tabs.jsp" %>
 
             <div id="page-wrapper">
 
