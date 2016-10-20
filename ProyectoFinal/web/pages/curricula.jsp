@@ -51,6 +51,9 @@
     </body>
 </html>
 <script type="text/javascript">
-    $("li.tramite").addClass("active").find("a").trigger("click");
-    $("li.retiro").addClass("active");
+    $(document).ready(function(){
+        var clase="<%= request.getParameter("href")%>";
+        $("li.tramite").addClass("active").find("a").trigger("click");
+        $("li."+clase).addClass("active");
+    });
 </script>

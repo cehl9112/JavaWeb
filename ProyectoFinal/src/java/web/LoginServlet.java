@@ -6,7 +6,9 @@
 package web;
 
 import dao.DaoLogin;
+import dao.DaoMenu;
 import dao.imp.DaoLoginImpl;
+import dao.imp.DaoMenuImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,10 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author chilario
- */
+
 @WebServlet(name = "LoginServlet", urlPatterns = {"/Login"})
 public class LoginServlet extends HttpServlet {
 
@@ -37,26 +36,44 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String user= request.getParameter("user");
         String pass= request.getParameter("password");
-        String file="login.html";
+        String file="login.jsp";
         
-        DaoLogin daoLogin=new DaoLoginImpl();
-        List<Object[]> list=null;
-        String msg="Usuario o Contraseña Incorrectos";
-        list=daoLogin.Login(user, pass);
+        String msg="";
         
-        if(list!=null && !list.isEmpty())
+        if(user=="" || pass=="")
         {
-            Object[] obj=list.get(0);
-            request.getSession().setAttribute("id_user",obj[0]);
-            request.getSession().setAttribute("id_rol",obj[1]);
-            file="page/index.jsp";
+            msg="<span style='color:red'>Ingrese un usuario / contraseña válidos</span>";
         }
         else
         {
-            request.setAttribute("msg", msg);
+            DaoLogin daoLogin=new DaoLoginImpl();
+            DaoMenu daoMenu=new DaoMenuImpl();
+            
+            List<Object[]> list=null;
+            List<Object[]> menu=null;
+            list=daoLogin.Login(user, pass);
+
+            if(list==null || list.isEmpty())
+                msg="<span style='color:red'>Usuario o Contraseña Incorrectos</span>";
+            else
+            {
+                Object[] obj=list.get(0);
+                request.getSession().setAttribute("id_user",obj[0]);
+                request.getSession().setAttribute("id_rol",obj[1]);
+                request.getSession().setAttribute("nombre",obj[2]);
+                file="pages/index.jsp";
+                
+                menu=daoMenu.Menu((Integer)obj[1]);
+                request.getSession().setAttribute("menu",menu);
+                response.sendRedirect(file);
+            }
         }
-        RequestDispatcher dispatcher= request.getRequestDispatcher(file);
-        dispatcher.forward(request, response);
+        if(msg!="")
+        {
+            request.setAttribute("msg", msg);
+            RequestDispatcher dispatcher= request.getRequestDispatcher(file);
+            dispatcher.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

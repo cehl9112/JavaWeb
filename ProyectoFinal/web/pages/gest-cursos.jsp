@@ -51,6 +51,10 @@
     </body>
 </html>
 <script type="text/javascript">
-    $("li.mantenimiento").addClass("active").find("a").trigger("click");
-    $("li.gest-cursos").addClass("active");
+    $(document).ready(function(){
+        var clase="<%= request.getParameter("href")%>";
+    	$("li.mantenimiento").addClass("active").find("a").trigger("click");
+        $("li."+clase).addClass("active");
+    });
+    
 </script>

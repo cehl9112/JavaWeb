@@ -51,7 +51,10 @@
     </body>
 </html>
 <script type="text/javascript">
-    $("li.academica").addClass("active").find("a").trigger("click");
-    $("li.faltas").addClass("active");
+    $(document).ready(function(){
+        var clase="<%= request.getParameter("href")%>";
+    	$("li.academica").addClass("active").find("a").trigger("click");
+        $("li."+clase).addClass("active");
+    });
 </script>
 

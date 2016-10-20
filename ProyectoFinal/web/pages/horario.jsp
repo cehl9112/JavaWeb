@@ -90,9 +90,10 @@
     </body>
 </html>
 <script type="text/javascript">
-    var clase="<%= request.getParameter("href")%>";
-    if(clase!=="horario")
-        $("li.academica").addClass("active").find("a").trigger("click");
-    $("li."+clase).addClass("active");
+    $(document).ready(function(){
+        var clase="<%= request.getParameter("href")%>";
+    	if(clase!=="horario") $("li.academica").addClass("active").find("a").trigger("click");
+        $("li."+clase).addClass("active");
+    });
 </script>
 
