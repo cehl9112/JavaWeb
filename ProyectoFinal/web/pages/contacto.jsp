@@ -51,5 +51,8 @@
     </body>
 </html>
 <script type="text/javascript">
-    $("li.contacto").addClass("active");
+    $(document).ready(function(){
+        var clase="<%= request.getParameter("href")%>";
+        $("li."+clase).addClass("active");
+    });
 </script>
