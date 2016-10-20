@@ -53,7 +53,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         var clase="<%= request.getParameter("href")%>";
-        $("li.tramite").addClass("active").find("a").trigger("click");
+        $("li.gest-tramite").addClass("active").find("a").trigger("click");
         $("li."+clase).addClass("active");
     });
 </script>
