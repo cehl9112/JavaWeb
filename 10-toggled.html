@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/10-exercises.css">
+    <title>Toggle Buttons</title>
+</head>
+<body>
+    <button id="gamingButton" class="">Gaming</button>
+    <button id="musicButton" class="">Music</button>
+    <button id="techButton" class="">Tech</button>
+</body>
+
+<script>
+  // Function to toggle the class
+  function toggleClass(element) {
+      element.classList.toggle('is-toggled');
+  }
+  
+  // Add a click event listener to all buttons
+  const buttons = document.querySelectorAll('button');
+  
+  buttons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        buttons.forEach(function(otherButton){
+          if(otherButton !== button){
+            otherButton.classList.remove('is-toggled');
+          }
+        });    
+        toggleClass(button);
+      });
+  });
+
+</script>
+</html>

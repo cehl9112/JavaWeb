@@ -15,21 +15,25 @@
     <button onclick="removeCart('-2')">-2</button>
     <button onclick="removeCart('-3')">-3</button>
     <button onclick="resetCart('0')">Reset Cart</button>
+    <p class="js-cart-quantity"></p>
+
 
     <script>
       let cartQuantity = 0;
 
       function viewCartQuantity(chosenButton){
         if(chosenButton === 'Show Quantity'){
-          console.log(`Cart quantity: ${cartQuantity}`) 
+          console.log(`Cart quantity: ${cartQuantity}`);
+          document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
         }
       }
-
+      
         function addCart(chosenButton){
           if(chosenButton === '1'){
             if(cartQuantity < 10){
               cartQuantity = cartQuantity + 1;
-              console.log(`Cart quantity: ${cartQuantity}`) 
+              console.log(`Cart quantity: ${cartQuantity}`);
+              document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
             }else{
               alert('The cart is full');
             }
@@ -38,7 +42,8 @@
           if(chosenButton === '2'){
             if(cartQuantity < 10){
               cartQuantity = cartQuantity + 2;
-              console.log(`Cart quantity: ${cartQuantity}`) 
+              console.log(`Cart quantity: ${cartQuantity}`);
+              document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
             }else{
               alert('The cart is full');
             }
@@ -47,7 +52,8 @@
           if(chosenButton === '3'){
             if(cartQuantity < 10){
               cartQuantity = cartQuantity + 3;
-              console.log(`Cart quantity: ${cartQuantity}`) 
+              console.log(`Cart quantity: ${cartQuantity}`);
+              document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
             }else{
               alert('The cart is full');
             }
@@ -56,7 +62,8 @@
           if(chosenButton === '4'){
             if(cartQuantity < 10){
               cartQuantity = cartQuantity + 4;
-              console.log(`Cart quantity: ${cartQuantity}`) 
+              console.log(`Cart quantity: ${cartQuantity}`);
+              document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
             }else{
               alert('The cart is full');
             }
@@ -65,7 +72,8 @@
           if(chosenButton === '5'){
             if(cartQuantity < 10){
               cartQuantity = cartQuantity + 5;
-              console.log(`Cart quantity: ${cartQuantity}`) 
+              console.log(`Cart quantity: ${cartQuantity}`);
+              document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
             }else{
               alert('The cart is full');
             }
@@ -79,7 +87,8 @@
                   }else {
                   alert('Not enough items in the cart');
                   }
-                  console.log(`Cart quantity: ${cartQuantity}`) 
+                  console.log(`Cart quantity: ${cartQuantity}`);
+                  document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
             }
 
             if(chosenButton === '-2'){
@@ -88,7 +97,8 @@
                   }else {
                   alert('Not enough items in the cart');
                   }
-                  console.log(`Cart quantity: ${cartQuantity}`) 
+                  console.log(`Cart quantity: ${cartQuantity}`);
+                  document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
             }
 
             if(chosenButton === '-3'){
@@ -97,16 +107,25 @@
                   }else {
                   alert('Not enough items in the cart');
                   }
-                  console.log(`Cart quantity: ${cartQuantity}`) 
+                  console.log(`Cart quantity: ${cartQuantity}`);
+                  document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
             }
           }
 
           function resetCart(chosenButton){
             cartQuantity = 0;
-            console.log(`Cart quantity:${cartQuantity}`) ;
+            console.log(`Cart quantity:${cartQuantity}`);
             alert('Your Cart is empty');
+            document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
           }
 
+        // Function to set the initial value of cartQuantity when the page loads
+        function load() {
+            document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
+        }
+
+        // Call the load function when the page is loaded
+        window.addEventListener('load', load);
 
     </script>
 

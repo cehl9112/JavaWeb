@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Exercises</title>
+  </head>
+  <body>
+    <!--
+    <button>9a</button>
+    <button class="js-change-button">9b</button>    
+    --> 
+
+    <button onclick="eventClick('heads')">heads</button>
+    <button onclick="eventClick('tails')">tails</button>
+    <p class="js-display"></p>
+    <input placeholder="Name" class="js-name" onkeydown="enterEvent(event);">
+    <button onclick="displayName()">Submit</button>
+    <p class="js-display-name"></p>
+    <input placeholder="Type something" class="js-type-smth" onkeyup="enterEventSomething();">
+    <p class="js-display-smth"></p>
+
+    <script>
+
+      function eventClick(option){
+        let result;
+        if(option === 'heads'){
+          result = option;
+        }else{
+          result = option;
+        }
+        console.log(result);
+        document.querySelector('.js-display').innerHTML = `You chose: ${result}`;
+      }
+
+      function displayName(){
+        const inputElement = document.querySelector('.js-name');
+        let text = inputElement.value;
+        document.querySelector('.js-display-name').innerHTML = `Your name is: ${text}`;
+      }
+
+      function enterEvent(event){
+        if(event.key === 'Enter'){
+          displayName();
+        }
+      }
+
+      function enterEventSomething(){
+        const inputSomething = document.querySelector('.js-type-smth');
+        let text = inputSomething.value;
+        document.querySelector('.js-display-smth').innerHTML = `${text}`;
+      }
+
+
+    
+      /*
+      const buttonName = document.querySelector('button');
+      console.log(buttonName);
+
+      document.querySelector('.js-change-button').innerHTML = '9b done';
+      */
+
+    </script>
+
+  </body>
+</html>

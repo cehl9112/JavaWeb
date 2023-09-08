@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon - Exercise</title>
+  </head>
+  <body>
+    <script>
+
+      let product = {
+        name: 'basketball',
+        price: 2095
+      };
+      console.log(product);
+      product.price+=500;
+
+      product["delivery-time"] = '3 days';
+      console.log(product);
+
+      const product1 = {
+        name: 'jean',
+        price: 155
+      };
+
+      const product2 = {
+        name: 'jean',
+        price: 150
+      };
+
+      function comparePrice(prod1, prod2){
+        if(product1.price > product2.price){
+          return prod2;
+        }else{
+          return prod1;
+        }      
+      }
+
+      const cheaperProduc = comparePrice(product1,product2)
+      console.log("the cheaer product is: ", cheaperProduc);
+
+      function isSameProduct(prod1, prod2){
+        if(product1.name === product2.name && product1.price === product2.price){
+          return true;
+        }else{
+          return false;
+        }
+      }
+
+      const isTheSameProduct = isSameProduct(product1,product2)
+      console.log("the products are the same: ", isTheSameProduct);
+
+      console.log('Good Morning'.toLowerCase());
+
+
+    </script>
+
+  </body>
+</html>
+
