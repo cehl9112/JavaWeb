@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    #calculator {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    input[type="text"] {
+      width: 75%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 50px;
+      height: 50px;
+      font-size: 18px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="calculator">
+    <input type="text" id="result" disabled>
+    <button onclick="appendNumber('1')">1</button>
+    <button onclick="appendNumber('2')">2</button>
+    <button onclick="appendNumber('3')">3</button>
+    <button onclick="appendOperator('+')">+</button>
+    <br>
+    <button onclick="appendNumber('4')">4</button>
+    <button onclick="appendNumber('5')">5</button>
+    <button onclick="appendNumber('6')">6</button>
+    <button onclick="appendOperator('-')">-</button>
+    <br>
+    <button onclick="appendNumber('7')">7</button>
+    <button onclick="appendNumber('8')">8</button>
+    <button onclick="appendNumber('9')">9</button>
+    <button onclick="appendOperator('*')">*</button>
+    <br>
+    <button onclick="appendNumber('0')">0</button>
+    <button onclick="clearResult()">C</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="appendOperator('/')">/</button>
+  </div>
+
+  <script>
+    let currentInput = "";
+    let currentOperator = "";
+    let currentResult = 0;
+
+    function appendNumber(num) {
+      currentInput += num;
+      document.getElementById("result").value = currentInput;
+    }
+
+    function appendOperator(operator) {
+      if (currentInput !== "") {
+        currentOperator = operator;
+        currentResult = parseFloat(currentInput);
+        currentInput = "";
+      }
+    }
+
+    function calculate() {
+      if (currentInput !== "") {
+        switch (currentOperator) {
+          case "+":
+            currentResult += parseFloat(currentInput);
+            break;
+          case "-":
+            currentResult -= parseFloat(currentInput);
+            break;
+          case "*":
+            currentResult *= parseFloat(currentInput);
+            break;
+          case "/":
+            currentResult /= parseFloat(currentInput);
+            break;
+        }
+        document.getElementById("result").value = currentResult;
+        currentInput = currentResult.toString();
+      }
+    }
+
+    function clearResult() {
+      currentInput = "";
+      currentOperator = "";
+      currentResult = 0;
+      document.getElementById("result").value = "";
+    }
+  </script>
+</body>
+</html>
