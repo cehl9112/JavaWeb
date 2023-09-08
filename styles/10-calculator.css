@@ -1,0 +1,39 @@
+body{
+  background-color: black;
+}
+
+.button-black{
+  background-color: rgb(51, 51, 51);
+  color: white;
+  padding: 20px;
+  border: none;
+  margin-right: 5px;
+
+  cursor: pointer;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+.button-orange{
+  background-color: rgb(254, 160, 10);
+  color: white;
+  padding: 20px;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+.button-size-font{
+  font-family: Arial;
+  font-size: 27px;
+}
+
+.font-clear{
+  font-family: Arial;
+  text-align: initial;
+  font-size: 17px;
+}
